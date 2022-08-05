@@ -1,10 +1,10 @@
--name: Intro to playbook
+- name: Intro to playbook
   hosts: all
   tasks:
-    -name: Print Helloo
+    - name: Print Helloo
       ansible.builtin.debug:
         msg: Hello
-    -name: Print Fruit
+    - name: Print Fruit
       debug:
         msg: Apple
 
