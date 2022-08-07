@@ -18,15 +18,15 @@
 
 
 
-#- name: Vars from tasks
-#  hosts: localhost
-#  tasks:
-#    - name: Print URL
-#      ansible.builtin.debug:
-#        msg: URL = {{ URL }}
-#      vars:
-#        URL: tasks.example.com
-#
+- name: Vars from tasks
+  hosts: localhost
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL = {{ URL }}
+      vars:
+        URL: tasks.example.com
+
 #
 #- name: Vars from Inventory
 #  hosts: localhost
