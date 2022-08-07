@@ -37,12 +37,12 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
-#- name: Facts
-#  hosts: localhost
-#  tasks:
-#    - name: Print Hostname
-#      ansible.builtin.debug:
-#        msg: Host Name = {{ ansible_hostname }}, Memory = {{ ansible_memory_mb_real.free }}
+- name: Facts
+  hosts: localhost
+  tasks:
+    - name: Print Hostname
+      ansible.builtin.debug:
+        msg: Host Name = {{ ansible_hostname }}, Memory = {{ ansible_memory_mb_real.free }}
 #     - name: Print FQDN
 #       ansible.builtin.debug:
 #         msg: "{{ ansible_fqdn }}"
