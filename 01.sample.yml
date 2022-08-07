@@ -4,8 +4,7 @@
     - name : Print Hello
       ansible.builtin.debug:
         msg:  " Hi Venktesh Welcome to devops world "
-    - name : Pront Apple
-      debug:
+    - debug:
         msg: Apple
 
 
