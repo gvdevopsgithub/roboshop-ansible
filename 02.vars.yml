@@ -28,12 +28,12 @@
         URL: tasks.example.com
 
 
-#- name: Vars from Inventory
-#  hosts: localhost
-#  vars:
-#    URL: "This Defined By sudheer"
-#  tasks:
-#    - name: Print URL
-#      ansible.builtin.debug:
-#        msg: URL = {{ URL }}
+- name: Vars from Inventory
+  hosts: localhost
+  vars:
+    URL: " {{ URL }}"
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL = {{ URL }}
 #          # if any value starts with a variable then we need to quote it, Either single or double
