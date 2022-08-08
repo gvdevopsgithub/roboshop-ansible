@@ -16,8 +16,6 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
-
-
 - name: Vars from tasks
   hosts: localhost
   tasks:
@@ -27,11 +25,11 @@
       vars:
         URL: tasks.example.com
 
-
 - name: Vars from Inventory
   hosts: localhost
   tasks:
     - name: Print URL
       ansible.builtin.debug:
         msg: URL = {{ URL }}
+
 #          # if any value starts with a variable then we need to quote it, Either single or double
