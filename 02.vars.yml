@@ -30,6 +30,6 @@
   tasks:
     - name: Print Hostname
       ansible.builtin.debug:
-        msg: Host Name = {{ ansible_hostname }}, {{ ansible_memory_mb.real.free }}
+        msg: Host Name = {{ ansible_hostname }}, Memory = {{ ansible_memory_mb.real.free }}
 
 #          # if any value starts with a variable then we need to quote it, Either single or double
