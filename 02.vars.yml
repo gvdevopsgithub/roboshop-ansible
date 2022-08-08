@@ -30,8 +30,6 @@
 
 - name: Vars from Inventory
   hosts: localhost
-  vars:
-    URL: " {{ URL }}"
   tasks:
     - name: Print URL
       ansible.builtin.debug:
