@@ -49,5 +49,5 @@
 
     - name: Print Output of shell command
       ansible.builtin.debug:
-        msg: "{{UPTIME}}"
+        msg: "{{ UPTIME }}"
 
