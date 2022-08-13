@@ -1,4 +1,3 @@
-- name: Hello from Roles
+- name: Hello from Role
   ansible.builtin.debug:
     msg: Hello
-
