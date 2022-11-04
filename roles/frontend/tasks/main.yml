@@ -1,0 +1,32 @@
+- name: Installing Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: installed
+
+- name: Import Common Role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Copy RoboShop Config file
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+  #notify: Restart Nginx Service
+
+- name: Copy Nginx Configuration
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  #notify: Restart Nginx Service
+
+#- name: Start Nginx Service
+#  ansible.builtin.systemd:
+#    name: nginx
+#    state: started
+#    enabled: yes
+
+- name: Filebeat SetUP
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat

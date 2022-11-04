@@ -1,0 +1,29 @@
+- name: Install Maven
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: Import Common App Setup Configurations
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+# this step is been done on CI as standard practice
+#- name: Install Maven Dependencies
+#  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
+
+- name: Calculate memory
+  ansible.builtin.shell: echo "{{ansible_memtotal_mb}} * 0.8" | bc | awk -F . '{print $1}'
+  register: mem
+
+- name: SystemD Setup for {{ COMPONENT }} Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
+
+- name: Filebeat SetUP
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
